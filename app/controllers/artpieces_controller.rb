@@ -1,19 +1,23 @@
 class ArtpiecesController < ApplicationController
   before_action :set_artpiece, only: [:show, :edit, :update, :destroy]
 
+
   def index
-    @artpieces = Artpiece.all
+    @artpieces = policy_scope(Artpiece).order(created_at: :desc)
   end
 
   def show
+    authorize @artpiece
   end
 
   def new
     @artpiece = Artpiece.new
+    authorize @artpiece
   end
 
   def create
     @artpiece = Artpiece.new(artpiece_params)
+    authorize @artpiece
     @artpiece.user_id = current_user.id
     if @artpiece.save
       redirect_to artpieces_path(@artpiece)
@@ -23,14 +27,17 @@ class ArtpiecesController < ApplicationController
   end
 
   def edit
+    authorize @artpiece
   end
 
   def update
+    authorize @artpiece
     @artpiece.update(artpiece_params)
     redirect_to artpieces_path(@artpiece)
   end
 
   def destroy
+    authorize @artpiece
     @artpiece.destroy
     redirect_to artpieces_path
   end
