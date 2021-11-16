@@ -1,6 +1,6 @@
 class ArtpiecesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_artpiece, only: [:show, :edit, :update, :destroy]
-
 
   def index
     @artpieces = policy_scope(Artpiece).order(created_at: :desc)
