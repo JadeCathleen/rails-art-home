@@ -10,3 +10,7 @@
 .navbar-lewagon .navbar-brand img {
   width: 110px;
 }
+
+.dropdown-menu[data-bs-popper] {
+  left: -307%;
+}
