@@ -14,7 +14,7 @@ class ArtpiecesController < ApplicationController
 
   def create
     @artpiece = Artpiece.new(artpiece_params)
-    @artpiece.user = User.find(params[:user_id])
+    @artpiece.user_id = current_user.id
     if @artpiece.save
       redirect_to artpieces_path(@artpiece)
     else
@@ -42,6 +42,6 @@ class ArtpiecesController < ApplicationController
   end
 
   def artpiece_params
-    params.require(:artpiece).permit(:type, :name, :price_per_day, :description, :artist)
+    params.require(:artpiece).permit(:category, :name, :price_per_day, :description, :artist)
   end
 end
