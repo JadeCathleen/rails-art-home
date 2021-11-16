@@ -3,9 +3,7 @@ class ArtpiecesController < ApplicationController
 
 
   def index
-    authorize @artpiece
     @artpieces = policy_scope(Artpiece).order(created_at: :desc)
-    @artpieces = Artpiece.all
   end
 
   def show
@@ -13,13 +11,13 @@ class ArtpiecesController < ApplicationController
   end
 
   def new
-    authorize @artpiece
     @artpiece = Artpiece.new
+    authorize @artpiece
   end
 
   def create
-    authorize @artpiece
     @artpiece = Artpiece.new(artpiece_params)
+    authorize @artpiece
     @artpiece.user_id = current_user.id
     if @artpiece.save
       redirect_to artpieces_path(@artpiece)

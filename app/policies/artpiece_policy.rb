@@ -1,10 +1,8 @@
 class ArtpiecePolicy < ApplicationPolicy
   class Scope < Scope
-
     def resolve
       scope.all
     end
-
   end
 
   def update?
@@ -14,7 +12,14 @@ class ArtpiecePolicy < ApplicationPolicy
   end
 
   def destroy?
-      record.user == user
+    record.user == user
   end
 
+  def show?
+    true
+  end
+
+  def create?
+    true
+  end
 end
