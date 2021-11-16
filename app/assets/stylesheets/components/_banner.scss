@@ -1,0 +1,27 @@
+.banner {
+  background: url(https://flv-prd-oxud8mggj93od145.imgix.net/2bd697e6-c057-456d-9151-c629b2672133/banniere_web_4001x1538px_serov.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=913%2C0%2C3076%2C1538&w=1920&dpr=1&fm=pjpg&q=80&cs=srgb);
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  margin: auto;
+  display: flex;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+    color: whitesmoke;
+    opacity: 0.7;
+    font-size: 20px;
+}
+
+.text-center {
+    text-align: center;
+}

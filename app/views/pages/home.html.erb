@@ -1,2 +1,41 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<body>
+
+    <div class="banner">
+        <div class="container">
+            <h1>Welcome to Art@Home project!</h1>
+            <p>Découvrez l'art chez vous, en louant des oeuvres, examinez les œuvres d'art à la loupe, louez des tableaux célèbres, etc.</p>
+            <%= link_to "Enter now", new_user_session_path, class: "btn btn-flat" %>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center">Découvrez les oeuvres</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Bonheur_Matisse.jpg/600px-Bonheur_Matisse.jpg" alt="">
+                <h4>Matisse</h4>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="card">
+                <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pdfma7-pdfamouspainting061001-image-01.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=23818bf86067861458af3c0dd37181b6" alt="">
+                <h4>Monet</h4>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="card">
+                <img src="https://wallpaperaccess.com/full/3272615.jpg" alt="">
+                <h4>Picasso</h4>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
