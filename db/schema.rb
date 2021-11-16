@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_153416) do
+ActiveRecord::Schema.define(version: 2021_11_16_101500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "artpieces", force: :cascade do |t|
-    t.string "type"
+    t.string "category"
     t.string "name"
     t.integer "price_per_day"
     t.text "description"
