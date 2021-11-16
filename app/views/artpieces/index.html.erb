@@ -5,7 +5,7 @@
   <%= artpiece.category %>
   <%= artpiece.artist %>
   <%= artpiece.price_per_day %>
-  <%= link_to 'Show', artpieces_path(artpiece) %>
+  <%= link_to 'Show', artpiece_path(artpiece) %>
     <% if policy(artpiece).edit? %>
       <%= link_to 'Edit', edit_artpiece_path(artpiece) %>
     <% end %>

@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   resources :wishes, only: [:index, :destroy]
 
-  resources :rentals, only: [:index, :edit, :update, :destroy] do
+  resources :rentals, only: [:index, :edit, :update] do
+    member do
+      patch 'change_status'
+    end
     resources :reviews, only: [:new, :create]
   end
 

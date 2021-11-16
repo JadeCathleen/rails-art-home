@@ -1,6 +1,10 @@
 <h1><%= @artpiece.name %></h1>
 
-<%= artpiece.category %>
-<%= artpiece.artist %>
-<%= artpiece.description %>
-<%= artpiece.price_per_day %>
+<%= @artpiece.category %>
+<%= @artpiece.artist %>
+<%= @artpiece.description %>
+<%= @artpiece.price_per_day %>
+
+<% if policy(Rental.new(artpiece: @artpiece)).create? %>
+  <%= link_to 'Rent it now!', new_artpiece_rental_path(@artpiece) %>
+<% end %>

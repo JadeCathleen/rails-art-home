@@ -1,0 +1,29 @@
+<% if !@rentals.nil? %>
+  <h2>Your rentals</h2>
+
+  <% @rentals.each do |rental| %>
+    <%= rental.artpiece.name %>
+    <%= rental.start_time %>
+    <%= rental.end_time %>
+    <%= rental.status %>
+    <% if policy(rental).edit? %>
+      <%= link_to 'Update', edit_rental_path(rental) %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if !@rentals_requested.first.nil? %>
+  <h2>Your requested rentals</h2>
+
+  <% @rentals_requested.first.each do |request| %>
+    <%= request.artpiece.name %>
+    <%= request.start_time %>
+    <%= request.end_time %>
+    <%= request.status %>
+    <% if request.status == "pending" %>
+      <%= link_to 'Accept',change_status_rental_path(request, status: "accepted"),  method: :patch %>
+      <%= link_to 'Deny',change_status_rental_path(request, status: "rejected"),  method: :patch %>
+    <% end %>
+      <%= link_to 'Cancel',change_status_rental_path(request, status: "cancelled"),  method: :patch %>
+  <% end %>
+<% end %>
