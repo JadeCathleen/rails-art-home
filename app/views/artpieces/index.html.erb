@@ -1,0 +1,13 @@
+<h1>Art Pieces</h1>
+
+<% @artpieces.each do |artpiece| %>
+  <%= artpiece.name %>
+  <%= artpiece.artist %>
+  <%= artpiece.price_per_day %>
+  <%= link_to 'Show', artpieces_path(artpiece) %>
+  <%= link_to 'Edit', new_artpiece_path %>
+  <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe,
+                        artpieces_path,
+                          method: :delete,
+                          data: { confirm: "Are you sure you want to delete #{artpiece.name} ?" } %>
+<% end %>
