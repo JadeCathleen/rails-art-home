@@ -6,11 +6,17 @@
   <%= artpiece.artist %>
   <%= artpiece.price_per_day %>
   <%= link_to 'Show', artpieces_path(artpiece) %>
-  <%= link_to 'Edit', edit_artpiece_path(artpiece) %>
-  <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe,
+    <% if policy(artpiece).edit? %>
+      <%= link_to 'Edit', edit_artpiece_path(artpiece) %>
+    <% end %>
+    <% if policy(artpiece).destroy? %>
+      <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe,
                         artpiece_path(artpiece),
                           method: :delete,
                           data: { confirm: "Are you sure you want to delete #{artpiece.name} ?" } %>
+    <% end %>
 <% end %>
 
+<% if policy(Artpiece).create? %>
 <%= link_to 'Add an artpiece', new_artpiece_path %>
+<% end %>

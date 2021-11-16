@@ -1,6 +1,6 @@
 <%= simple_form_for(artpiece) do |f| %>
   <%= f.input :name %>
-  <%= f.input :category %>
+  <%= f.input :category, collection: Artpiece::CATEGORIES %>
   <%= f.input :artist %>
   <%= f.input :description %>
   <%= f.input :price_per_day %>
