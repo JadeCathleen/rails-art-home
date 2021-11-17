@@ -14,13 +14,20 @@
     width: 100%;
     object-fit: cover;
 }
+.card-rental .artpiece-info {
+  margin: 10px 0;
+}
 .card-rental .artpiece-title {
   font-weight: bolder;
 }
-
+.card-rental .p {
+  margin-block-start: 0;
+  margin-bottom: 0;
+}
 .card-rental .rental-info {
   font-size: smaller;
   font-weight: lighter;
+  margin-bottom: 10px;
 }
 
 .card-rental .rental-status {
