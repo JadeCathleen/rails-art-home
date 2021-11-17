@@ -7,8 +7,7 @@ from unique artists from all around the globe.</p>
 
 <div class="cards">
   <% @artpieces.each do |artpiece| %>
-
-    <div class="card-product d-flex position-relative">
+    <div class="card-product d-flex position-relative" id="index">
       <% if artpiece.photo.attached? %>
        <%= cl_image_tag artpiece.photo.key, width: 300, crop: :fill %>
       <% else %>
