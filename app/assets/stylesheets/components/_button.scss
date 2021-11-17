@@ -25,3 +25,59 @@
 .btn-ghost:hover {
   opacity: 1;
 }
+
+.btn-update {
+  padding: 3px 5px;
+  border-radius: 5px;
+  background-color: rgb(20, 21, 88);
+  color: white;
+  text-decoration: none;
+  font-size: smaller;
+}
+
+.btn-update:hover {
+  background-color: rgb(68, 71, 143);
+  color: white;
+}
+
+.btn-cancel {
+  padding: 3px 5px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-size: smaller;
+}
+
+.btn-cancel:hover {
+  background-color: gray;
+  color: white;
+}
+
+.btn-accept {
+  padding: 3px 5px;
+  border-radius: 5px;
+  background-color: rgb(6, 70, 38);
+  color: white;
+  text-decoration: none;
+  font-size: smaller;
+}
+
+.btn-accept:hover {
+  background-color: rgb(93, 201, 93);
+  color: white;
+}
+
+.btn-deny {
+  padding: 3px 5px;
+  border-radius: 5px;
+  background-color: rgb(80, 7, 7);
+  color: white;
+  text-decoration: none;
+  font-size: smaller;
+}
+
+.btn-deny:hover {
+  background-color: rgb(197, 94, 94);
+  color: white;
+}
