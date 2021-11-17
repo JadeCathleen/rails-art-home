@@ -1,7 +1,13 @@
 <div class="card-trip">
+<<<<<<< HEAD
 <% if @artpiece.photo.attached? %>
       <%= cl_image_tag @artpiece.photo.key%>
     <% end %>
+=======
+      <% if @artpiece.photo.attached? %>
+        <%= cl_image_tag @artpiece.photo.key%>
+      <% end %>
+>>>>>>> 36ae1d6d46a83f61ddcca4a02ae7b663a2290ec2
   <div class="card-trip-infos">
     <div>
       <h1><%= @artpiece.name %></h1>
@@ -17,9 +23,15 @@
 </div>
 
 <div class="card-product">
+<<<<<<< HEAD
   <% if @artpiece.photo.attached? %>
       <%= cl_image_tag @artpiece.photo.key%>
     <% end %>
+=======
+      <% if @artpiece.photo.attached? %>
+        <%= cl_image_tag @artpiece.photo.key%>
+      <% end %>
+>>>>>>> 36ae1d6d46a83f61ddcca4a02ae7b663a2290ec2
   <div class="card-product-infos">
     <p>" <%= @artpiece.description %> " </p>
   </div>
