@@ -1,10 +1,25 @@
-<h1><%= @artpiece.name %></h1>
+<div class="card-trip">
+  <img src="https://fr.muzeo.com/sites/default/files/styles/image_moyenne_def/public/oeuvres/peinture/moderne/la_danse_1909141896.jpg?itok=pxYrnLCA" />
+  <div class="card-trip-infos">
+    <div>
+      <% if @artpiece.photo.attached? %>
+        <%= cl_image_tag @artpiece.photo.key, width: 400, crop: :fill %>
+      <% end %>
+      <h1><%= @artpiece.name %></h1>
+      <p> Créateur : <%= @artpiece.artist %></p>
+      <p> Type : <%= @artpiece.category %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= @artpiece.price_per_day %> €/day</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+    <% if policy(Rental.new(artpiece: @artpiece)).create? %>
+      <%= link_to 'Rent it now!', new_artpiece_rental_path(@artpiece) %>
+    <% end %>
+</div>
 
-<%= @artpiece.category %>
-<%= @artpiece.artist %>
-<%= @artpiece.description %>
-<%= @artpiece.price_per_day %>
-
-<% if policy(Rental.new(artpiece: @artpiece)).create? %>
-  <%= link_to 'Rent it now!', new_artpiece_rental_path(@artpiece) %>
-<% end %>
+<div class="card-product">
+  <img src="https://fr.muzeo.com/sites/default/files/styles/image_moyenne_def/public/oeuvres/peinture/moderne/la_danse_1909141896.jpg?itok=pxYrnLCA" />
+  <div class="card-product-infos">
+    <p>" <%= @artpiece.description %> " </p>
+  </div>
+</div>
