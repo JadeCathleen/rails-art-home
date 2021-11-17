@@ -44,34 +44,36 @@
 <% else %>
   <div class="container">
     <div class="row my-4 cards">
-      <% @rentals_requested.first.each do |request| %>
-        <div class="col-3 mx-4 card-rental">
-          <%= cl_image_tag request.artpiece.photo.key, width: 300, crop: :fill %>
-          <div class="artpiece-info d-flex flex-column">
-            <div class="artpiece-title">
-              <%= request.artpiece.name %>
+      <% @rentals_requested.each do |request_by_art| %>
+        <% request_by_art.each do |request| %>
+          <div class="col-3 mx-4 card-rental">
+            <%= cl_image_tag request.artpiece.photo.key, width: 300, crop: :fill %>
+            <div class="artpiece-info d-flex flex-column">
+              <div class="artpiece-title">
+                <%= request.artpiece.name %>
+              </div>
+              <div class="artpiece-artist">
+                <%= request.artpiece.artist %>
+              </div>
             </div>
-            <div class="artpiece-artist">
-              <%= request.artpiece.artist %>
+            <div class="rental-info">
+              <%= request.start_time.to_formatted_s(:long) %>
+              <%= request.end_time.to_formatted_s(:long) %>
+            </div>
+            <div class="rental-status">
+            <%= request.status %>
+            </div>
+            <div class="buttons">
+              <% if request.status == "pending" %>
+                <%= link_to 'Accept',change_status_rental_path(request, status: "accepted"),  method: :patch, class: 'btn btn-success' %>
+                <%= link_to 'Deny',change_status_rental_path(request, status: "rejected"),  method: :patch, class: 'btn btn-danger' %>
+              <% end %>
+              <% if request.status != "cancelled" %>
+                <%= link_to 'Cancel',change_status_rental_path(request, status: "cancelled"),  method: :patch, class: 'btn btn-info' %>
+              <% end %>
             </div>
           </div>
-          <div class="rental-info">
-            <%= request.start_time.to_formatted_s(:long) %>
-            <%= request.end_time.to_formatted_s(:long) %>
-          </div>
-          <div class="rental-status">
-          <%= request.status %>
-          </div>
-          <div class="buttons">
-            <% if request.status == "pending" %>
-              <%= link_to 'Accept',change_status_rental_path(request, status: "accepted"),  method: :patch, class: 'btn btn-success' %>
-              <%= link_to 'Deny',change_status_rental_path(request, status: "rejected"),  method: :patch, class: 'btn btn-danger' %>
-            <% end %>
-            <% if request.status != "cancelled" %>
-              <%= link_to 'Cancel',change_status_rental_path(request, status: "cancelled"),  method: :patch, class: 'btn btn-info' %>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
