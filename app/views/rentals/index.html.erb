@@ -29,7 +29,7 @@
             </div>
           </div>
           <% if policy(rental).edit? %>
-            <%= link_to 'Update', edit_rental_path(rental), class: 'btn btn-primary' %>
+            <%= link_to 'Update', edit_rental_path(rental), class: 'btn-update' %>
           <% end %>
         </div>
         <% end %>
@@ -64,14 +64,18 @@
             <div class="rental-status <%= bg_status(request.status) %>">
             <%= request.status %>
             </div>
-            <div class="buttons">
-              <% if request.status == "pending" %>
-                <%= link_to 'Accept',change_status_rental_path(request, status: "accepted"),  method: :patch, class: 'btn btn-success' %>
-                <%= link_to 'Deny',change_status_rental_path(request, status: "rejected"),  method: :patch, class: 'btn btn-danger' %>
-              <% end %>
-              <% if request.status != "cancelled" %>
-                <%= link_to 'Cancel',change_status_rental_path(request, status: "cancelled"),  method: :patch, class: 'btn btn-info' %>
-              <% end %>
+            <div class="buttons d-flex flex-column">
+              <div class="buttons-pending d-flex justify-content-between mx-4">
+                <% if request.status == "pending" %>
+                  <%= link_to 'Accept',change_status_rental_path(request, status: "accepted"),  method: :patch, class: 'btn-accept' %>
+                  <%= link_to 'Deny',change_status_rental_path(request, status: "rejected"),  method: :patch, class: 'btn-deny' %>
+                <% end %>
+              </div>
+              <div class="button-cancel d-flex justify-content-center my-2">
+                <% if request.status != "cancelled" %>
+                  <%= link_to 'Cancel',change_status_rental_path(request, status: "cancelled"),  method: :patch, class: 'btn-cancel' %>
+                <% end %>
+              </div>
             </div>
           </div>
         <% end %>
