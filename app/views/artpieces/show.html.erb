@@ -2,9 +2,9 @@
   <img src="https://fr.muzeo.com/sites/default/files/styles/image_moyenne_def/public/oeuvres/peinture/moderne/la_danse_1909141896.jpg?itok=pxYrnLCA" />
   <div class="card-trip-infos">
     <div>
-      <% if @artpiece.photo.attached? %>
-        <%= cl_image_tag @artpiece.photo.key, width: 400, crop: :fill %>
-      <% end %>
+    <% if @artpiece.photo.attached? %>
+      <%= cl_image_tag @artpiece.photo.key, width: 400, crop: :fill %>
+    <% end %>
       <h1><%= @artpiece.name %></h1>
       <p> Créateur : <%= @artpiece.artist %></p>
       <p> Type : <%= @artpiece.category %></p>
