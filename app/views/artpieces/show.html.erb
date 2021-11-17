@@ -12,7 +12,7 @@
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
     <% if policy(Rental.new(artpiece: @artpiece)).create? %>
-      <%= link_to 'Rent it now!', new_artpiece_rental_path(@artpiece) %>
+      <%= link_to "Rent it now", new_artpiece_rental_path(@artpiece) , class: "btn btn-ghost" %>
     <% end %>
 </div>
 
