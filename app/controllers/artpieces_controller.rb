@@ -20,6 +20,7 @@ class ArtpiecesController < ApplicationController
     authorize @artpiece
     @artpiece.user_id = current_user.id
     if @artpiece.save
+      flash[:notice] = 'Artpiece created'
       redirect_to artpieces_path(@artpiece)
     else
       render :new
