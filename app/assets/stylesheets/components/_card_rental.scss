@@ -1,0 +1,33 @@
+
+.card-rental {
+    width: 200px;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgb(230, 230, 230);
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgb(230, 230, 230);
+    position: relative;
+}
+
+.card-rental img {
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-rental .rental-info {
+  font-size: smaller;
+  font-weight: lighter;
+}
+
+.card-rental .rental-status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: orange;
+  padding: 3px;
+  border-radius: 1px;
+  color: white;
+  font-size: smaller;
+  font-weight: bolder;
+}

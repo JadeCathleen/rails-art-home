@@ -1,19 +1,34 @@
 <% if !@rentals.nil? %>
-  <h2>Your rentals</h2>
+  <h2 class='text-center'>Your rentals</h2>
 
-  <% @rentals.each do |rental| %>
-    <% if rental.artpiece.photo.attached? %>
-      <%= cl_image_tag rental.artpiece.photo.key, width: 300, crop: :fill %>
+<div class="container">
+  <div class="row my-4 cards">
+    <% @rentals.each do |rental| %>
+      <div class="col-3 mx-4 card-rental">
+        <% if rental.artpiece.photo.attached? %>
+          <%= cl_image_tag rental.artpiece.photo.key, width: 300, crop: :fill %>
+        <% end %>
+        <div class="card-info d-flex flex-column">
+          <div class="artpiece-info d-flex flex-column">
+            <%= rental.artpiece.name %>
+            <%= rental.artpiece.artist %>
+          </div>
+          <div class="rental-info">
+            <%= rental.start_time.to_formatted_s(:long) %>
+            <%= rental.end_time.to_formatted_s(:long) %>
+          </div>
+          <div class="rental-status">
+            <%= rental.status %>
+          </div>
+        </div>
+        <% if policy(rental).edit? %>
+          <%= link_to 'Update', edit_rental_path(rental), class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+      <% end %>
     <% end %>
-    <%= rental.artpiece.name %>
-    <%= rental.start_time %>
-    <%= rental.end_time %>
-    <%= rental.status %>
-    <% if policy(rental).edit? %>
-      <%= link_to 'Update', edit_rental_path(rental) %>
-    <% end %>
-  <% end %>
-<% end %>
+  </div>
+</div>
 
 <% if !@rentals_requested.first.nil? %>
   <h2>Your requested rentals</h2>
@@ -21,8 +36,9 @@
   <% @rentals_requested.first.each do |request| %>
     <%= cl_image_tag request.artpiece.photo.key, width: 300, crop: :fill %>
     <%= request.artpiece.name %>
-    <%= request.start_time %>
-    <%= request.end_time %>
+    <%= request.artpiece.artist %>
+    <%= request.start_time.to_formatted_s(:long) %>
+    <%= request.end_time.to_formatted_s(:long) %>
     <%= request.status %>
     <% if request.status == "pending" %>
       <%= link_to 'Accept',change_status_rental_path(request, status: "accepted"),  method: :patch %>
@@ -31,3 +47,6 @@
       <%= link_to 'Cancel',change_status_rental_path(request, status: "cancelled"),  method: :patch %>
   <% end %>
 <% end %>
+
+<%= link_to 'Back to Art Pieces', artpieces_path %>
+<%= link_to 'Refresh', rentals_path %>
