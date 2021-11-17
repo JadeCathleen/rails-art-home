@@ -24,8 +24,8 @@
               <%= rental.start_time.to_formatted_s(:long) %>
               <%= rental.end_time.to_formatted_s(:long) %>
             </div>
-            <div class="rental-status">
-              <%= rental.status %>
+            <div class="rental-status <%= bg_status(rental.status) %>">
+                <%= rental.status %>
             </div>
           </div>
           <% if policy(rental).edit? %>
@@ -56,11 +56,12 @@
                 <%= request.artpiece.artist %>
               </div>
             </div>
+            <p>Rental dates :</p>
             <div class="rental-info">
               <%= request.start_time.to_formatted_s(:long) %>
               <%= request.end_time.to_formatted_s(:long) %>
             </div>
-            <div class="rental-status">
+            <div class="rental-status <%= bg_status(request.status) %>">
             <%= request.status %>
             </div>
             <div class="buttons">
