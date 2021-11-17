@@ -10,10 +10,15 @@
         <% end %>
         <div class="card-info d-flex flex-column">
           <div class="artpiece-info d-flex flex-column">
-            <%= rental.artpiece.name %>
-            <%= rental.artpiece.artist %>
+            <div class="artpiece-title">
+              <%= rental.artpiece.name %>
+            </div>
+            <div class="artpiece-artist">
+              <%= rental.artpiece.artist %>
+            </div>
           </div>
           <div class="rental-info">
+            <p>Rental dates :</p>
             <%= rental.start_time.to_formatted_s(:long) %>
             <%= rental.end_time.to_formatted_s(:long) %>
           </div>
