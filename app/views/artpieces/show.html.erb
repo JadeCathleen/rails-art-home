@@ -1,13 +1,7 @@
 <div class="card-trip">
-<<<<<<< HEAD
-<% if @artpiece.photo.attached? %>
-      <%= cl_image_tag @artpiece.photo.key%>
-    <% end %>
-=======
       <% if @artpiece.photo.attached? %>
         <%= cl_image_tag @artpiece.photo.key%>
       <% end %>
->>>>>>> 36ae1d6d46a83f61ddcca4a02ae7b663a2290ec2
   <div class="card-trip-infos">
     <div>
       <h1><%= @artpiece.name %></h1>
@@ -18,20 +12,14 @@
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
     <% if policy(Rental.new(artpiece: @artpiece)).create? %>
-      <%= link_to 'Rent it now!', new_artpiece_rental_path(@artpiece) %>
+      <%= link_to "Rent it now", new_artpiece_rental_path(@artpiece) , class: "btn btn-ghost" %>
     <% end %>
 </div>
 
 <div class="card-product">
-<<<<<<< HEAD
-  <% if @artpiece.photo.attached? %>
-      <%= cl_image_tag @artpiece.photo.key%>
-    <% end %>
-=======
       <% if @artpiece.photo.attached? %>
         <%= cl_image_tag @artpiece.photo.key%>
       <% end %>
->>>>>>> 36ae1d6d46a83f61ddcca4a02ae7b663a2290ec2
   <div class="card-product-infos">
     <p>" <%= @artpiece.description %> " </p>
   </div>
