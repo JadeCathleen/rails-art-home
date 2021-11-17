@@ -2,6 +2,9 @@
   <h2>Your rentals</h2>
 
   <% @rentals.each do |rental| %>
+    <% if rental.artpiece.photo.attached? %>
+      <%= cl_image_tag rental.artpiece.photo.key, width: 300, crop: :fill %>
+    <% end %>
     <%= rental.artpiece.name %>
     <%= rental.start_time %>
     <%= rental.end_time %>
@@ -16,6 +19,7 @@
   <h2>Your requested rentals</h2>
 
   <% @rentals_requested.first.each do |request| %>
+    <%= cl_image_tag request.artpiece.photo.key, width: 300, crop: :fill %>
     <%= request.artpiece.name %>
     <%= request.start_time %>
     <%= request.end_time %>

@@ -14,9 +14,23 @@
     <% end %>
 </div>
 
+<<<<<<< HEAD
 <div class="card-product">
   <img src="https://fr.muzeo.com/sites/default/files/styles/image_moyenne_def/public/oeuvres/peinture/moderne/la_danse_1909141896.jpg?itok=pxYrnLCA" />
   <div class="card-product-infos">
     <p>" <%= @artpiece.description %> " </p>
   </div>
 </div>
+=======
+<% if @artpiece.photo.attached? %>
+  <%= cl_image_tag @artpiece.photo.key, width: 400, crop: :fill %>
+<% end %>
+<%= @artpiece.category %>
+<%= @artpiece.artist %>
+<%= @artpiece.description %>
+<%= @artpiece.price_per_day %>
+
+<% if policy(Rental.new(artpiece: @artpiece)).create? %>
+  <%= link_to 'Rent it now!', new_artpiece_rental_path(@artpiece) %>
+<% end %>
+>>>>>>> 0743cb84db8cfd9a34455495120c64f25f49c4c7

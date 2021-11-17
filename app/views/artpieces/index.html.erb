@@ -1,6 +1,9 @@
 <h1>Art Pieces</h1>
 
 <% @artpieces.each do |artpiece| %>
+  <% if artpiece.photo.attached? %>
+   <%= cl_image_tag artpiece.photo.key, width: 300, crop: :fill %>
+  <% end %>
   <%= artpiece.name %>
   <%= artpiece.category %>
   <%= artpiece.artist %>
