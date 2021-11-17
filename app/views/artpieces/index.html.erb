@@ -1,21 +1,37 @@
 <h1>Art Pieces</h1>
 
-<% @artpieces.each do |artpiece| %>
-  <%= artpiece.name %>
-  <%= artpiece.category %>
-  <%= artpiece.artist %>
-  <%= artpiece.price_per_day %>
-  <%= link_to 'Show', artpiece_path(artpiece) %>
-    <% if policy(artpiece).edit? %>
-      <%= link_to 'Edit', edit_artpiece_path(artpiece) %>
-    <% end %>
-    <% if policy(artpiece).destroy? %>
-      <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe,
-                        artpiece_path(artpiece),
-                          method: :delete,
-                          data: { confirm: "Are you sure you want to delete #{artpiece.name} ?" } %>
-    <% end %>
-<% end %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <p> Browse through all of our modern paintings, sculptures, drawings and photographs
+from unique artists from all around the globe.</p>
+</div>
+
+<div class="cards">
+  <% @artpieces.each do |artpiece| %>
+
+    <div class="card-product d-flex position-relative">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="">
+        <div class="card-product-infos">
+
+      <h2><%= artpiece.name %></h2>
+      <p><%= artpiece.category %></p>
+      <p><%= artpiece.artist %></p>
+      <p><%= artpiece.price_per_day %></p>
+        </div>
+        <div class='show-edit-artpiece position-absolute bottom-0 end-0'>
+          <%= link_to 'Show', artpiece_path(artpiece) %>
+            <% if policy(artpiece).edit? %>
+              <%= link_to 'Edit', edit_artpiece_path(artpiece) %>
+            <% end %>
+            <% if policy(artpiece).destroy? %>
+              <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe,
+                                artpiece_path(artpiece),
+                                  method: :delete,
+                                  data: { confirm: "Are you sure you want to delete #{artpiece.name} ?" } %>
+            <% end %>
+        </div>
+    </div>
+  <% end %>
+</div>
 
 <% if policy(Artpiece).create? %>
 <%= link_to 'Add an artpiece', new_artpiece_path %>
