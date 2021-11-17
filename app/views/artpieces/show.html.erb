@@ -1,5 +1,8 @@
 <h1><%= @artpiece.name %></h1>
 
+<% if @artpiece.photo.attached? %>
+  <%= cl_image_tag @artpiece.photo.key, width: 400, crop: :fill %>
+<% end %>
 <%= @artpiece.category %>
 <%= @artpiece.artist %>
 <%= @artpiece.description %>

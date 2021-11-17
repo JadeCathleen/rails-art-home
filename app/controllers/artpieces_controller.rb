@@ -49,6 +49,6 @@ class ArtpiecesController < ApplicationController
   end
 
   def artpiece_params
-    params.require(:artpiece).permit(:category, :name, :price_per_day, :description, :artist)
+    params.require(:artpiece).permit(:category, :name, :price_per_day, :description, :artist, :photo)
   end
 end
