@@ -16,9 +16,10 @@ from unique artists from all around the globe.</p>
         <div class="card-product-infos">
 
       <h2><%= artpiece.name %></h2>
-      <p><%= artpiece.category %></p>
-      <p><%= artpiece.artist %></p>
-      <p><%= artpiece.price_per_day %></p>
+      <br>
+      <p>Artist: <%= artpiece.artist %></p>
+      <p>Category: <%=  artpiece.category %></p>
+      <p>Price: <%= artpiece.price_per_day %> €/day</p>
         </div>
         <div class='show-edit-artpiece position-absolute bottom-0 end-0'>
           <%= link_to 'Show', artpiece_path(artpiece) %>
