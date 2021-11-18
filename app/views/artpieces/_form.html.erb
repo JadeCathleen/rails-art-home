@@ -1,7 +1,7 @@
 
 <div class="form-infos">
   <%= simple_form_for(artpiece) do |f| %>
-    <div class="artpiece-main d-flex justify-content-between">
+    <div class="artpiece-main">
       <%= f.input :name %>
       <%= f.input :artist %>
     </div>
@@ -9,6 +9,8 @@
     <%= f.input :description %>
     <%= f.input :price_per_day %>
     <%= f.input :photo, as: :file %>
-    <%= f.submit 'Save', class: 'btn btn-flat text-center' %>
+    <div class="text-center mt-3">
+      <%= f.submit 'Save', class: 'btn btn-flat' %>
+    </div>
   <% end %>
 </div>
