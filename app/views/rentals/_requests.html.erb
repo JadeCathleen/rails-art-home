@@ -1,0 +1,30 @@
+<div class="card-rental col-sm-6">
+  <% if request.artpiece.photo.attached? %>
+    <%= cl_image_tag request.artpiece.photo.key, width: 300, crop: :fill %>
+  <% end %>
+  <div class="artpiece-info d-flex flex-column">
+    <div class="artpiece-title">
+      <%= request.artpiece.name %>
+    </div>
+    <div class="artpiece-artist">
+      <%= request.artpiece.artist %>
+    </div>
+  </div>
+  <p>Rental dates :</p>
+  <div class="rental-info">
+    <%= request.start_time.to_formatted_s(:long) %>
+    <p>-</p>
+    <%= request.end_time.to_formatted_s(:long) %>
+  </div>
+  <div class="rental-status <%= bg_status(request.status) %>">
+  <%= request.status %>
+  </div>
+  <div class="buttons d-flex flex-column">
+    <div class="buttons-pending d-flex justify-content-between mx-4">
+      <% if request.status == "pending" %>
+        <%= link_to 'Accept',change_status_rental_path(request, status: "accepted"),  method: :patch, class: 'btn-accept' %>
+        <%= link_to 'Deny',change_status_rental_path(request, status: "rejected"),  method: :patch, class: 'btn-deny' %>
+      <% end %>
+    </div>
+  </div>
+</div>
