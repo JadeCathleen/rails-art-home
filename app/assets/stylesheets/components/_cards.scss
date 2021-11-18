@@ -19,6 +19,7 @@
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-decoration: none;
     img {
       z-index: -10;
       width: 100%;
@@ -30,19 +31,21 @@
       left:0;
     }
     .card-link-infos {
+      display: flex;
+      align-items: center;
       z-index: 20;
       height: 100%;
       width: 100%;
       transition: 0.5s all ease;
       background-color: rgba(0, 0, 0, 0.4);
       opacity: 0;
+      text-align: center;
       &:hover {
         opacity: 1;
       }
       p {
         font-size: 1rem;
-        text-align: center;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Didact Gothic', sans-serif;
       }
     }
   }
