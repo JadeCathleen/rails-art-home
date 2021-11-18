@@ -22,7 +22,7 @@
       <% end %>
       <div class="button-cancel">
         <% if rental.status != "cancelled" %>
-          <%= link_to 'Cancel',change_status_rental_path(request, status: "cancelled"),  method: :patch, class: 'btn-cancel' %>
+          <%= link_to 'Cancel',change_status_rental_path(rental, status: "cancelled"),  method: :patch, class: 'btn-cancel' %>
         <% end %>
       </div>
     </div>
