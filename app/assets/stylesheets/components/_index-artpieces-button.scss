@@ -1,0 +1,27 @@
+.add {
+
+  font-size: 52px;
+  font-weight: bold;
+  color:black;
+  // line-height: 1.33;
+  position: -webkit-sticky;
+  position: sticky;
+   top: -1px;
+   &:hover {
+     opacity: 1;
+     color: rgba(214, 214, 214, 0.666);
+   }
+}
+
+a {
+  text-decoration: none;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  background-color: gray;
+  width:240px;
+
+
+}
