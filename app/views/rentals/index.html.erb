@@ -31,6 +31,11 @@
           <% if policy(rental).edit? %>
             <%= link_to 'Update', edit_rental_path(rental), class: 'btn-update' %>
           <% end %>
+          <div class="button-cancel d-flex justify-content-center my-2">
+            <% if rental.status != "cancelled" %>
+              <%= link_to 'Cancel',change_status_rental_path(request, status: "cancelled"),  method: :patch, class: 'btn-cancel' %>
+            <% end %>
+          </div>
         </div>
         <% end %>
     </div>
@@ -71,11 +76,7 @@
                   <%= link_to 'Deny',change_status_rental_path(request, status: "rejected"),  method: :patch, class: 'btn-deny' %>
                 <% end %>
               </div>
-              <div class="button-cancel d-flex justify-content-center my-2">
-                <% if request.status != "cancelled" %>
-                  <%= link_to 'Cancel',change_status_rental_path(request, status: "cancelled"),  method: :patch, class: 'btn-cancel' %>
-                <% end %>
-              </div>
+
             </div>
           </div>
         <% end %>
