@@ -1,26 +1,19 @@
-<div class="card-trip">
-      <% if @artpiece.photo.attached? %>
-        <%= cl_image_tag @artpiece.photo.key%>
-      <% end %>
-  <div class="card-trip-infos">
-    <div>
-      <h1><%= @artpiece.name %></h1>
-      <p> Créateur : <%= @artpiece.artist %></p>
-      <p> Type : <%= @artpiece.category %></p>
-    </div>
-    <h2 class="card-trip-pricing"><%= @artpiece.price_per_day %> €/day</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
-    <% if policy(Rental.new(artpiece: @artpiece)).create? %>
-      <%= link_to "Rent it now", new_artpiece_rental_path(@artpiece) , class: "btn btn-ghost" %>
-    <% end %>
-</div>
+
 
 <div class="card-product">
       <% if @artpiece.photo.attached? %>
         <%= cl_image_tag @artpiece.photo.key%>
       <% end %>
   <div class="card-product-infos">
-    <p>" <%= @artpiece.description %> " </p>
+    <div class="card-trip-infos">
+      <h1><%= @artpiece.name %></h1>
+      <p> Artist : <%= @artpiece.artist %></p>
+      <p> Type : <%= @artpiece.category %></p>
+      <p>Description : <%= @artpiece.description %></p>
+    <div>
   </div>
+    <h2 class="card-trip-pricing">Price : <%= @artpiece.price_per_day %> €/day</h2>
+    <% if policy(Rental.new(artpiece: @artpiece)).create? %>
+      <%= link_to "Rent it now", new_artpiece_rental_path(@artpiece) , class: "btn btn-ghost" %>
+      <% end %>
 </div>
