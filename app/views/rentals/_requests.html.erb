@@ -1,26 +1,22 @@
-<div class="card-rental col-sm-6">
+<div class="card-rental">
   <% if request.artpiece.photo.attached? %>
     <%= cl_image_tag request.artpiece.photo.key, width: 300, crop: :fill %>
   <% end %>
-  <div class="artpiece-info d-flex flex-column">
-    <div class="artpiece-title">
-      <%= request.artpiece.name %>
+  <div class="card-info">
+    <div class="artpiece-info">
+      <p><strong><%= request.artpiece.name %></strong> - <%= request.artpiece.artist %></p>
     </div>
-    <div class="artpiece-artist">
-      <%= request.artpiece.artist %>
+    <p>Rental dates :</p>
+    <div class="rental-info">
+      <p><%= request.start_time.to_formatted_s(:long) %> - <%= request.end_time.to_formatted_s(:long) %></p>
     </div>
-  </div>
-  <p>Rental dates :</p>
-  <div class="rental-info">
-    <%= request.start_time.to_formatted_s(:long) %>
-    <p>-</p>
-    <%= request.end_time.to_formatted_s(:long) %>
-  </div>
-  <div class="rental-status <%= bg_status(request.status) %>">
-  <%= request.status %>
-  </div>
-  <div class="buttons d-flex flex-column">
-    <div class="buttons-pending d-flex justify-content-between mx-4">
+    <div class="rental-price">
+      <p><strong>Expected Payment : <%= request.artpiece.price_per_day %>€</strong></p>
+    </div>
+    <div class="rental-status <%= bg_status(request.status) %>">
+    <%= request.status %>
+    </div>
+    <div class="buttons">
       <% if request.status == "pending" %>
         <%= link_to 'Accept',change_status_rental_path(request, status: "accepted"),  method: :patch, class: 'btn-accept' %>
         <%= link_to 'Deny',change_status_rental_path(request, status: "rejected"),  method: :patch, class: 'btn-deny' %>

@@ -1,34 +1,30 @@
-<div class="card-rental col-sm-6">
+<div class="card-rental">
   <% if rental.artpiece.photo.attached? %>
     <%= cl_image_tag rental.artpiece.photo.key, width: 300, crop: :fill %>
   <% end %>
-  <div class="card-info d-flex flex-column">
-    <div class="artpiece-info d-flex flex-column">
-      <div class="artpiece-title">
-        <%= rental.artpiece.name %>
-      </div>
-      <div class="artpiece-artist">
-        <%= rental.artpiece.artist %>
-      </div>
+  <div class="card-info">
+    <div class="artpiece-info">
+      <p><strong><%= rental.artpiece.name %></strong> - <%= rental.artpiece.artist %></p>
     </div>
     <p>Rental dates :</p>
     <div class="rental-info">
-      <%= rental.start_time.to_formatted_s(:long) %>
-      <p>-</p>
-      <%= rental.end_time.to_formatted_s(:long) %>
+      <p><%= rental.start_time.to_formatted_s(:long) %> - <%= rental.end_time.to_formatted_s(:long) %></p>
+    </div>
+    <div class="rental-price">
+      <p><strong>Price : <%= rental.artpiece.price_per_day %>€</strong></p>
     </div>
     <div class="rental-status <%= bg_status(rental.status) %>">
         <%= rental.status %>
     </div>
-  </div>
-  <div class="buttons d-flex justify-content-between mx-4">
-    <% if policy(rental).edit? %>
-      <%= link_to 'Update', edit_rental_path(rental), class: 'btn-update' %>
-    <% end %>
-    <div class="button-cancel">
-      <% if rental.status != "cancelled" %>
-        <%= link_to 'Cancel',change_status_rental_path(request, status: "cancelled"),  method: :patch, class: 'btn-cancel' %>
+    <div class="buttons">
+      <% if policy(rental).edit? %>
+        <%= link_to 'Update', edit_rental_path(rental), class: 'btn-update' %>
       <% end %>
+      <div class="button-cancel">
+        <% if rental.status != "cancelled" %>
+          <%= link_to 'Cancel',change_status_rental_path(request, status: "cancelled"),  method: :patch, class: 'btn-cancel' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
