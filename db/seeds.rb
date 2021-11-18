@@ -34,17 +34,17 @@ the_cellist.user = alex
 the_cellist_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637235230/art%40home%20local/the-cellist-1957_fk4yfe.jpg')
 the_cellist.photo.attach(io: the_cellist_photo_url, filename: "image.jpg", content_type: "image/jpg")
 the_cellist.save!
-le_penseur = Artpiece.new(name: "The Scream", category:"sculpture", artist: "Auguste Rodin", description: "Le Penseur est l'une des plus célèbres sculptures en bronze d'Auguste Rodin. Elle représente un homme en train de méditer, semblant devoir faire face à un profond dilemme.", price_per_day: 450000 )
+le_penseur = Artpiece.new(name: "Le Penseur", category:"sculpture", artist: "Auguste Rodin", description: "Le Penseur est l'une des plus célèbres sculptures en bronze d'Auguste Rodin. Elle représente un homme en train de méditer, semblant devoir faire face à un profond dilemme.", price_per_day: 450000 )
 le_penseur.user = alex
 le_penseur_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637235249/art%40home%20local/Le_Penseur_uwvsbj.jpg')
 le_penseur.photo.attach(io: le_penseur_photo_url, filename: "image.jpg", content_type: "image/jpg")
 le_penseur.save!
-vitruvian_man = Artpiece.new(name: "The Scream", category:"drawing", artist: "Leonardo da Vinci", description: "the quintessential Renaissance man whose unending curiosity inspired him to study art, engineering, and nature", price_per_day: 230000 )
+vitruvian_man = Artpiece.new(name: "Vitruvian Man", category:"drawing", artist: "Leonardo da Vinci", description: "the quintessential Renaissance man whose unending curiosity inspired him to study art, engineering, and nature", price_per_day: 230000 )
 vitruvian_man.user = alex
 vitruvian_man_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637235238/art%40home%20local/Leonardo-da-Vinci-Vitruvian-Man_n31dh7.jpg')
 vitruvian_man.photo.attach(io: vitruvian_man_photo_url, filename: "image.jpg", content_type: "image/jpg")
 vitruvian_man.save!
-famous = Artpiece.new(name: "The Scream", category:"painting", artist: "Jean-Michel Basquiat", description: "La cote de l'artiste a crû de manière régulière. En mai 2016, une de ses toiles, intitulée Untitled, décroche un nouveau record en étant adjugée 57,2 millions de dollars (50,2 millions d’euros) lors d’enchères organisées par Christie’s à New York", price_per_day: 54888 )
+famous = Artpiece.new(name: "Famous", category:"painting", artist: "Jean-Michel Basquiat", description: "La cote de l'artiste a crû de manière régulière. En mai 2016, une de ses toiles, intitulée Untitled, décroche un nouveau record en étant adjugée 57,2 millions de dollars (50,2 millions d’euros) lors d’enchères organisées par Christie’s à New York", price_per_day: 54888 )
 famous.user = alex
 famous_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637235226/art%40home%20local/basquiat_pxvbxh.jpg')
 famous.photo.attach(io: famous_photo_url, filename: "image.jpg", content_type: "image/jpg")
