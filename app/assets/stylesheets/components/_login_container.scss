@@ -1,0 +1,10 @@
+.login-container {
+  background: url("login-image.jpg"), radial-gradient(circle, rgba(238,234,236,1) 0%, rgb(18, 19, 19) 100%);
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
