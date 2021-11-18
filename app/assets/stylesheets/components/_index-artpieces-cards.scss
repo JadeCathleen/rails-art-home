@@ -11,20 +11,39 @@
 //   margin: 20px;
 //   border-radius: 10px;
 // }
+.index-background {
+  background-position: center;
+  background-size: cover;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  height: 617px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 200px;
+}
 
-.card-product img {
+.index-background p {
+ text-align: center;
+}
+.oeuvres img {
   height: 100%;
   width: 200px;
   object-fit: cover;
 }
 
-.card-product h2 {
+.oeuvres h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.oeuvres p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -32,7 +51,7 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.oeuvres .oeuvres-infos {
   padding: 16px;
 }
 
