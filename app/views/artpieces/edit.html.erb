@@ -1,3 +1,6 @@
-<h1>Edit <%= @artpiece.name %></h1>
-
-<%= render 'form', artpiece: @artpiece %>
+<div class="form-container d-flex justify-content-center align-items-center">
+  <div class="card-form">
+    <h4 class='text-center'>Edit <%= @artpiece.name %></h4>
+    <%= render 'form', artpiece: @artpiece %>
+  </div>
+</div>
