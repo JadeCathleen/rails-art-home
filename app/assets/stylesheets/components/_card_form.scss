@@ -1,0 +1,16 @@
+
+.card-form {
+  width: 500px;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0 0 5px rgb(230, 230, 230);
+  padding: 20px;
+  border: 1px solid rgb(230, 230, 230);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h4 {
+    margin-bottom: 40px;
+  }
+}
