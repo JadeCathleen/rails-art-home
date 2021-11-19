@@ -1,10 +1,8 @@
 
 <div class="form-infos">
   <%= simple_form_for(artpiece) do |f| %>
-    <div class="artpiece-main">
-      <%= f.input :name %>
-      <%= f.input :artist %>
-    </div>
+    <%= f.input :name %>
+    <%= f.input :artist %>
     <%= f.input :category, collection: Artpiece::CATEGORIES %>
     <%= f.input :description %>
     <%= f.input :price_per_day %>
