@@ -1,4 +1,7 @@
 class Artpiece < ApplicationRecord
+include PgSearch::Model
+pg_search_scope :global_search, against: [:name, :category], using: { tsearch: { prefix: true } }
+
   CATEGORIES = ["painting", "sculpture", "photo", "drawing"]
 
   belongs_to :user

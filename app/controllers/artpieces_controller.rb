@@ -4,6 +4,15 @@ class ArtpiecesController < ApplicationController
 
   def index
     @artpieces = policy_scope(Artpiece).order(created_at: :desc)
+
+    if params.dig(:search, :query).present?
+      @artpieces = Artpiece.order(created_at: :desc).global_search(params.dig(:search, :query))
+      @filtered = true
+    else
+      @filtered = false
+      @artpieces = Artpiece.order(created_at: :desc)
+    end
+
   end
 
   def show
