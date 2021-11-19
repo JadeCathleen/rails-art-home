@@ -13,6 +13,13 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  protected
+
+  def after_sign_in_path_for(resource)
+    # return the path based on resource
+    artpieces_path
+  end
+
   private
 
   def skip_pundit?

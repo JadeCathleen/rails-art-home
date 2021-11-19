@@ -2,23 +2,11 @@
   <p> Browse through all of our modern paintings, sculptures, drawings and photographs
 by unique artists from all around the globe</p>
 </div>
-<%= simple_form_for :search, url: artpieces_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
-  </div>
-<% end %>
 <div>
   <% if policy(Artpiece).create? %>
     <div class="cta-sticky"> <%= link_to "+ add your artpiece", new_artpiece_path, class: "add" %> </div>
   <% end %>
   <div class="cards">
-   <% if @filtered %>
-      <p><%= @artpieces.present? ? "Nous avons trouvé #{@artpieces.size} résultats" : "No results found" %></p>
-      <%= link_to "supprimez le filtre X", artpieces_path %>
-    <% end %>
     <% @artpieces.each do |artpiece| %>
       <%= link_to artpiece_path(artpiece), class: 'card-link' do %>
         <div class='card-link-infos'>

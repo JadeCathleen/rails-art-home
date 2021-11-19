@@ -17,14 +17,16 @@ User.destroy_all
 puts "Creating user..."
 
 alex = User.create({ email: "alexandre.vrla@gmail.com", password: "123456", password_confirmation: "123456" })
-ben = User.create({ email: "ben@gmail.com", password: "123456", password_confirmation: "123456" })
+jade = User.create({ email: "cormier.jade@gmail.com", password: "123456", password_confirmation: "123456" })
+victor = User.create({ email: "victor.bourgouin@hotmail.fr", password: "123456", password_confirmation: "123456" })
+damien = User.create({ email: "damienjouaneau@gmail.com", password: "123456", password_confirmation: "123456" })
 
 
 puts "User finished!"
 
 # ARTPIECE
-mona_lisa = Artpiece.new(name: "Mona Lisa", category:"painting", artist: "Leonardo da Vinci", description: " The Mona Lisa bears a strong resemblance to many Renaissance depictions of the Virgin Mary, who was at that time seen as an ideal for womanhood. The woman sits markedly upright in a pozzetto armchair with her arms folded, a sign of her reserved posture. Her gaze is fixed on the observer. The woman appears alive to an unusual extent, which Leonardo achieved by his method of not drawing outlines (sfumato). The soft blending creates an ambiguous mood mainly in two features: the corners of the mouth, and the corners of the eyes.", price_per_day: 1000000 )
-mona_lisa.user = alex
+mona_lisa = Artpiece.new(name: "Mona Lisa", user_id: 2, category:"painting", artist: "Leonardo da Vinci", description: " The Mona Lisa bears a strong resemblance to many Renaissance depictions of the Virgin Mary, who was at that time seen as an ideal for womanhood. The woman sits markedly upright in a pozzetto armchair with her arms folded, a sign of her reserved posture. Her gaze is fixed on the observer. The woman appears alive to an unusual extent, which Leonardo achieved by his method of not drawing outlines (sfumato). The soft blending creates an ambiguous mood mainly in two features: the corners of the mouth, and the corners of the eyes.", price_per_day: 1000000)
+mona_lisa.user = jade
 mona_lisa_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637271286/art%40home%20local/Mona_lisa_aqhxqv.jpg')
 mona_lisa.photo.attach(io: mona_lisa_photo_url, filename: "image.jpg", content_type: "image/jpg")
 mona_lisa.save!
@@ -33,21 +35,21 @@ tahitian_landscape.user = alex
 tahitian_landscape_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637271263/art%40home%20local/Tahitian_landscape_cuyi10.jpg')
 tahitian_landscape.photo.attach(io: tahitian_landscape_photo_url, filename: "image.jpg", content_type: "image/jpg")
 tahitian_landscape.save!
-femme_debout = Artpiece.new(name: "Femme Debout", category:"sculpture", artist: "Alberto Giacometti", description: "Figée au garde-à-vous dans une position hiératique, les mains collées au corps, les jambes presque entièrement soudées entre elles, les énormes pieds cunéiformes englués au sol mais qui semblent prêts à se mouvoir, la haute et puissante figure possède la majestas d’une statue sortie de la nuit des temps : sa dimension extraordinaire, qui surpasse de loin la hauteur habituelle de la série précédente des « Femmes de Venise » (1956), lui donne une dignité quasi sacrée ; elle suscite, chez qui la regarde, l’impression d’appartenir à un monde autre. Hissant sa nudité dans une solitude d’indifférence, elle est là, telle une déesse pétrifiée, asexuée, la tête plate sans cheveux, le regard frontal, les épaules carrées, le cou musclé ; seule la rondeur des hanches et des seins indique qu’il s’agit d’une femme.
+femme_debout = Artpiece.new(name: "Femme Debout", category: "sculpture", artist: "Alberto Giacometti", description: "Figée au garde-à-vous dans une position hiératique, les mains collées au corps, les jambes presque entièrement soudées entre elles, les énormes pieds cunéiformes englués au sol mais qui semblent prêts à se mouvoir, la haute et puissante figure possède la majestas d’une statue sortie de la nuit des temps : sa dimension extraordinaire, qui surpasse de loin la hauteur habituelle de la série précédente des « Femmes de Venise » (1956), lui donne une dignité quasi sacrée ; elle suscite, chez qui la regarde, l’impression d’appartenir à un monde autre. Hissant sa nudité dans une solitude d’indifférence, elle est là, telle une déesse pétrifiée, asexuée, la tête plate sans cheveux, le regard frontal, les épaules carrées, le cou musclé ; seule la rondeur des hanches et des seins indique qu’il s’agit d’une femme.
 
 ", price_per_day: 12000 )
-femme_debout.user = alex
+femme_debout.user = victor
 femme_debout_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637271274/art%40home%20local/femme_debout_h4isir.jpg')
 femme_debout.photo.attach(io: femme_debout_photo_url, filename: "image.jpg", content_type: "image/jpg")
 femme_debout.save!
-mit_dem_schwarzen_bogen = Artpiece.new(name: "Mit dem schwarzen Bogen", category:"painting", artist: "Wassily Kandinsky", description: "Quand on regarde pour la première fois cette grande oeuvre abstraite, on a l’impression que cette composition a été créée par un jeu des formes et de contrastes de couleurs qui sont organisés autour du point central de tableau qu’est l’arc noir. La composition réunit trois masses de couleurs : bleu, rouge et violet. La forme «bleue» émerge du coin en bas à gauche, elle traverse l’espace en allant du blanc-jaune jusqu’au rouge orange. Pour Kandinsky le bleu est une couleur «typiquement céleste». La jaune est «la couleur typiquement terrestre dont la violence peut être pénible et agressive» La chaleur du jaune avec le froid du bleu créent un contraste très vivant et «dynamique». Le blanc est comme «un silence» Face à elles, se trouve la couleur typiquement chaude et très vivante, le «rouge vermillon» qui «donne l’impression de force, d’énergie, de fougue, de décisions, de joie, de triomphe.
+mit_dem_schwarzen_bogen = Artpiece.new(name: "Mit dem schwarzen Bogen", user_id: 3, category: "painting", artist: "Wassily Kandinsky", description: "Quand on regarde pour la première fois cette grande oeuvre abstraite, on a l’impression que cette composition a été créée par un jeu des formes et de contrastes de couleurs qui sont organisés autour du point central de tableau qu’est l’arc noir. La composition réunit trois masses de couleurs : bleu, rouge et violet. La forme «bleue» émerge du coin en bas à gauche, elle traverse l’espace en allant du blanc-jaune jusqu’au rouge orange. Pour Kandinsky le bleu est une couleur «typiquement céleste». La jaune est «la couleur typiquement terrestre dont la violence peut être pénible et agressive» La chaleur du jaune avec le froid du bleu créent un contraste très vivant et «dynamique». Le blanc est comme «un silence» Face à elles, se trouve la couleur typiquement chaude et très vivante, le «rouge vermillon» qui «donne l’impression de force, d’énergie, de fougue, de décisions, de joie, de triomphe.
 
 ", price_per_day: 34000 )
 mit_dem_schwarzen_bogen.user = alex
 mit_dem_schwarzen_bogen_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637271251/art%40home%20local/Mit_dem_schwarzen_Bogen_ozbarn.jpg')
 mit_dem_schwarzen_bogen.photo.attach(io: mit_dem_schwarzen_bogen_photo_url, filename: "image.jpg", content_type: "image/jpg")
 mit_dem_schwarzen_bogen.save!
-the_scream = Artpiece.new(name: "The Scream", category:"painting", artist: "Edvard Munch", description: "Oil, tempera, pastel and crayon on cardboard", price_per_day: 10000 )
+the_scream = Artpiece.new(name: "The Scream", user_id: 4, category: "painting", artist: "Edvard Munch", description: "Oil, tempera, pastel and crayon on cardboard", price_per_day: 10000 )
 the_scream.user = alex
 the_scream_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637235461/art%40home%20local/Edvard_Munch__1893__The_Scream__oil__tempera_and_pastel_on_cardboard__91_x_73_cm__National_Gallery_of_Norway_f1fr7g.jpg')
 the_scream.photo.attach(io: the_scream_photo_url, filename: "image.jpg", content_type: "image/jpg")
@@ -67,7 +69,13 @@ vitruvian_man.user = alex
 vitruvian_man_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637235238/art%40home%20local/Leonardo-da-Vinci-Vitruvian-Man_n31dh7.jpg')
 vitruvian_man.photo.attach(io: vitruvian_man_photo_url, filename: "image.jpg", content_type: "image/jpg")
 vitruvian_man.save!
-famous = Artpiece.new(name: "Famous", category:"painting", artist: "Jean-Michel Basquiat", description: "La cote de l'artiste a crû de manière régulière. En mai 2016, une de ses toiles, intitulée Untitled, décroche un nouveau record en étant adjugée 57,2 millions de dollars (50,2 millions d’euros) lors d’enchères organisées par Christie’s à New York", price_per_day: 54888, user_id: 1 )
+famous = Artpiece.new(
+name: "Famous",
+category:"painting",
+artist: "Jean-Michel Basquiat",
+description: "La cote de l'artiste a crû de manière régulière. En mai 2016, une de ses toiles, intitulée Untitled, décroche un nouveau record en étant adjugée 57,2 millions de dollars (50,2 millions d’euros) lors d’enchères organisées par Christie’s à New York",
+price_per_day: 54888,
+user_id: 1 )
 famous.user = alex
 famous_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637235226/art%40home%20local/basquiat_pxvbxh.jpg')
 famous.photo.attach(io: famous_photo_url, filename: "image.jpg", content_type: "image/jpg")
