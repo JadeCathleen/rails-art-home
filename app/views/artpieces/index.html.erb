@@ -2,69 +2,71 @@
   <p> Browse through all of our modern paintings, sculptures, drawings and photographs
 by unique artists from all around the globe</p>
 </div>
+<div>
+  <% if policy(Artpiece).create? %>
+    <div class="cta-sticky"> <%= link_to "add your artpiece", new_artpiece_path, class: "add" %> </div>
+  <% end %>
+  <div class="cards">
+    <% @artpieces.each do |artpiece| %>
 
-<div class="cards">
-        <% if policy(Artpiece).create? %>
-       <div class="card-link"> <%= link_to "+ add yours", new_artpiece_path, class: "add" %> </div>
-        <% end %>
-  <% @artpieces.each do |artpiece| %>
-
-    <%= link_to artpiece_path(artpiece), class: 'card-link' do %>
-      <div class='card-link-infos'>
-        <div class="artist+name">
-        <p><%= artpiece.artist %></p>
-        <p><em><%= artpiece.name %></em></p>
-        </div>
-      </div>
-      <% if artpiece.photo.attached? %>
-        <%= cl_image_tag artpiece.photo.key %>
-      <% else %>
-        <%# Une image de base %>
-      <% end %>
-      <div class='show-edit-artpiece position-absolute top-0 end-0'>
-        <%# if policy(artpiece).edit? %>
-          <%#= link_to edit_artpiece_path(artpiece) do %>
-            <%# <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-            </svg> %>
-          <%# end %>
-        <%# end %>
-        <%# if policy(artpiece).destroy? %>
-          <%#= link_to artpiece_path(artpiece), method: :delete, data: { confirm: "Are you sure you want to delete #{artpiece.name} ?" } do %>
-            <%# <i class="fas fa-trash-alt"></i> %>
-          <%# end %>
-        <%# end %>
-        </div>
-    <% end %>
-
-
-
-
-
-      <% if false %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_tag artpiece.photo.key %>)">
-          <div class="oeuvres-infos">
-            <p>Artist: <%= artpiece.artist %>, Category: <%=  artpiece.category %>, Price: <%= artpiece.price_per_day %> €/day</p>
-            <div class='show-edit-artpiece position-absolute top-0 end-0'>
-              <% if policy(artpiece).edit? %>
-                <%= link_to edit_artpiece_path(artpiece) do %>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                  </svg>
-                <% end %>
-              <% end %>
-              <% if policy(artpiece).destroy? %>
-                <%= link_to artpiece_path(artpiece), method: :delete, data: { confirm: "Are you sure you want to delete #{artpiece.name} ?" } do %>
-                  <i class="fas fa-trash-alt"></i>
-                <% end %>
-              <% end %>
-            </div>
+      <%= link_to artpiece_path(artpiece), class: 'card-link' do %>
+        <div class='card-link-infos'>
+          <div class="artist+name">
+          <p><%= artpiece.artist %></p>
+          <p><em><%= artpiece.name %></em></p>
           </div>
         </div>
+        <% if artpiece.photo.attached? %>
+          <%= cl_image_tag artpiece.photo.key %>
+        <% else %>
+          <%# Une image de base %>
+        <% end %>
+        <div class='show-edit-artpiece position-absolute top-0 end-0'>
+          <%# if policy(artpiece).edit? %>
+            <%#= link_to edit_artpiece_path(artpiece) do %>
+              <%# <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+              </svg> %>
+            <%# end %>
+          <%# end %>
+          <%# if policy(artpiece).destroy? %>
+            <%#= link_to artpiece_path(artpiece), method: :delete, data: { confirm: "Are you sure you want to delete #{artpiece.name} ?" } do %>
+              <%# <i class="fas fa-trash-alt"></i> %>
+            <%# end %>
+          <%# end %>
+          </div>
       <% end %>
 
 
-  <% end %>
+
+
+
+        <% if false %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_tag artpiece.photo.key %>)">
+            <div class="oeuvres-infos">
+              <p>Artist: <%= artpiece.artist %>, Category: <%=  artpiece.category %>, Price: <%= artpiece.price_per_day %> €/day</p>
+              <div class='show-edit-artpiece position-absolute top-0 end-0'>
+                <% if policy(artpiece).edit? %>
+                  <%= link_to edit_artpiece_path(artpiece) do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                  <% end %>
+                <% end %>
+                <% if policy(artpiece).destroy? %>
+                  <%= link_to artpiece_path(artpiece), method: :delete, data: { confirm: "Are you sure you want to delete #{artpiece.name} ?" } do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+
+    <% end %>
+  </div>
+
 </div>
