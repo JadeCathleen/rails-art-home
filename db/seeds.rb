@@ -67,7 +67,13 @@ vitruvian_man.user = alex
 vitruvian_man_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637235238/art%40home%20local/Leonardo-da-Vinci-Vitruvian-Man_n31dh7.jpg')
 vitruvian_man.photo.attach(io: vitruvian_man_photo_url, filename: "image.jpg", content_type: "image/jpg")
 vitruvian_man.save!
-famous = Artpiece.new(name: "Famous", category:"painting", artist: "Jean-Michel Basquiat", description: "La cote de l'artiste a crû de manière régulière. En mai 2016, une de ses toiles, intitulée Untitled, décroche un nouveau record en étant adjugée 57,2 millions de dollars (50,2 millions d’euros) lors d’enchères organisées par Christie’s à New York", price_per_day: 54888, user_id: 1 )
+famous = Artpiece.new(
+name: "Famous",
+category:"painting",
+artist: "Jean-Michel Basquiat",
+description: "La cote de l'artiste a crû de manière régulière. En mai 2016, une de ses toiles, intitulée Untitled, décroche un nouveau record en étant adjugée 57,2 millions de dollars (50,2 millions d’euros) lors d’enchères organisées par Christie’s à New York",
+price_per_day: 54888,
+user_id: 1 )
 famous.user = alex
 famous_photo_url = URI.open('https://res.cloudinary.com/dbogiehad/image/upload/v1637235226/art%40home%20local/basquiat_pxvbxh.jpg')
 famous.photo.attach(io: famous_photo_url, filename: "image.jpg", content_type: "image/jpg")

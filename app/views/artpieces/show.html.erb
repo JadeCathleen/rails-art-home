@@ -14,6 +14,6 @@
   </div>
     <h2 class="card-trip-pricing">Price : <%= @artpiece.price_per_day %> €/day</h2>
     <% if policy(Rental.new(artpiece: @artpiece)).create? %>
-      <%= link_to "Rent it now", new_artpiece_rental_path(@artpiece) , class: "btn btn-ghost" %>
+      <%= link_to "Rent it now", new_artpiece_rental_path(@artpiece), class: "btn btn-ghost" %>
       <% end %>
 </div>
