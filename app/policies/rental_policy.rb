@@ -17,6 +17,10 @@ class RentalPolicy < ApplicationPolicy
     record.artpiece.user == user
   end
 
+  def cancel_rental?
+    record.user = user
+  end
+
   def update?
     record.artpiece.user != user
   end
