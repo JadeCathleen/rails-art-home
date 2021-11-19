@@ -1,22 +1,24 @@
 <div class="index-background" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.75)), url(https://www.kare-click.fr/58816/peinture-a-l-huile-abstract-blue-150x120cm.jpg)">
-  <p> Browse through all of our modern paintings, sculptures, drawings and photographs
-by unique artists from all around the globe</p>
-</div>
-<%= simple_form_for :search, url: artpieces_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
+  <div class="d-flex flex-column">
+    <p> Browse through all of our modern paintings, sculptures, drawings and photographs by unique artists from all around the globe</p>
+    <%= simple_form_for :search, url: artpieces_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+          <button name="button" type="submit" class="btn btn-flat">
+            <i class="fas fa-search"></i> Search
+          </button>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+
 <div>
   <% if policy(Artpiece).create? %>
     <div class="cta-sticky"> <%= link_to "+ add your artpiece", new_artpiece_path, class: "add" %> </div>
   <% end %>
   <div class="cards">
    <% if @filtered %>
-      <p><%= @artpieces.present? ? "Nous avons trouvé #{@artpieces.size} résultats" : "No results found" %></p>
+      <p><%= @artpieces.present? ? "We found #{@artpieces.size} results" : "No results found" %></p>
       <%= link_to "supprimez le filtre X", artpieces_path %>
     <% end %>
     <% @artpieces.each do |artpiece| %>
