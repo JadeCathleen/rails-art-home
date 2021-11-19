@@ -11,7 +11,7 @@
       <p><%= rental.start_time.to_formatted_s(:long) %> - <%= rental.end_time.to_formatted_s(:long) %></p>
     </div>
     <div class="rental-price">
-      <p><strong>Price : <%= rental.artpiece.price_per_day %>€</strong></p>
+      <p><strong>Price : <%= (rental.end_time - rental.start_time).to_i*rental.artpiece.price_per_day %>€</strong></p>
     </div>
     <div class="rental-status <%= bg_status(rental.status) %>">
         <%= rental.status %>
