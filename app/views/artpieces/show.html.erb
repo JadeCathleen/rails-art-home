@@ -14,6 +14,21 @@
   </div>
     <h2 class="card-trip-pricing">Price : <%= @artpiece.price_per_day %> €/day</h2>
     <% if policy(Rental.new(artpiece: @artpiece)).create? %>
-      <%= link_to "Rent it now", new_artpiece_rental_path(@artpiece) , class: "btn btn-ghost" %>
-      <% end %>
+      <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Rent
+      </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Your booking offer</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+             <%= render 'rentals/form', artpiece: @artpiece, rental: @rental %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
 </div>

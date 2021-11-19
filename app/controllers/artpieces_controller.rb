@@ -8,6 +8,7 @@ class ArtpiecesController < ApplicationController
 
   def show
     authorize @artpiece
+    @rental = Rental.new
   end
 
   def new
