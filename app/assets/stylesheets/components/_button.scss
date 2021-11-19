@@ -29,12 +29,19 @@
 }
 
 .btn-update {
-  padding: 3px 5px;
-  border-radius: 5px;
-  background-color: rgb(20, 21, 88);
-  color: white;
-  text-decoration: none;
-  font-size: smaller;
+background-color: #7892c2;
+border-radius: 28px;
+border: 1px solid #4e6096;
+display: inline-block;
+cursor: pointer;
+color: #ffffff;
+font-family: Arial;
+font-size: 14px;
+padding: 3px 11px;
+text-decoration: none;
+text-shadow: 0px 1px 0px #283966;
+position: relative;
+top: 1px;
 }
 
 .btn-update:hover {
@@ -43,16 +50,23 @@
 }
 
 .btn-cancel {
-  padding: 5px 5px;
-  border-radius: 5px;
-  background-color: black;
-  color: white;
-  text-decoration: none;
-  font-size: smaller;
+background-color: #e69171;
+border-radius: 28px;
+border: 1px solid #f4f4f4;
+display: inline-block;
+cursor: pointer;
+color: #ffffff;
+font-family: Arial;
+font-size: 14px;
+padding: 3px 11px;
+text-decoration: none;
+text-shadow: 0px 1px 0px #665728;
+position: relative;
+top: 1px;
 }
 
 .btn-cancel:hover {
-  background-color: gray;
+  background-color:#e06436;
   color: white;
 }
 
