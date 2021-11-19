@@ -18,27 +18,28 @@
     </div>
     <div class="buttons">
       <% if policy(rental).edit? %>
-      <button type="button" class="btn btn-update" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Update
-      </button>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Edit your offer</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-             <%= render 'form', artpiece: rental.artpiece, rental: rental %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end %>
-      <div class="button-cancel">
         <% if rental.status != "cancelled" %>
-          <%= link_to 'Cancel',change_status_rental_path(rental, status: "cancelled"),  method: :patch, class: 'btn-cancel' %>
+          <button type="button" class="btn btn-update" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Update
+          </button>
+          <div class="button-cancel">
+            <%= link_to 'Cancel',cancel_rental_rental_path(rental, status: "cancelled"),  method: :patch, class: 'btn-cancel' %>
+          </div>
         <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit your offer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form', artpiece: rental.artpiece, rental: rental %>
       </div>
     </div>
   </div>

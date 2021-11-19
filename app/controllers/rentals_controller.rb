@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: [:edit, :update, :destroy, :change_status]
+  before_action :set_rental, only: [:edit, :update, :destroy, :change_status, :cancel_rental]
 
   def index
     @rentals = policy_scope(Rental).order(created_at: :desc)
@@ -30,6 +30,16 @@ class RentalsController < ApplicationController
 
   def change_status
     authorize @rental
+    @rental.status = params[:status]
+    if @rental.save
+      redirect_to rentals_path
+    else
+      render :index
+    end
+  end
+
+  def cancel_rental
+     authorize @rental
     @rental.status = params[:status]
     if @rental.save
       redirect_to rentals_path

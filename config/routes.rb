@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :rentals, only: [:index] do
     member do
       patch 'change_status'
+      patch 'cancel_rental'
     end
     resources :reviews, only: [:new, :create]
   end
