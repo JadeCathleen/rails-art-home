@@ -11,14 +11,29 @@
       <p><%= rental.start_time.to_formatted_s(:long) %> - <%= rental.end_time.to_formatted_s(:long) %></p>
     </div>
     <div class="rental-price">
-      <p><strong>Price : <%= rental.artpiece.price_per_day %>€</strong></p>
+      <p><strong>Price : <%= (rental.end_time - rental.start_time).to_i*rental.artpiece.price_per_day %>€</strong></p>
     </div>
     <div class="rental-status <%= bg_status(rental.status) %>">
         <%= rental.status %>
     </div>
     <div class="buttons">
       <% if policy(rental).edit? %>
-        <%= link_to 'Update', edit_rental_path(rental), class: 'btn-update' %>
+      <button type="button" class="btn btn-update" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Update
+      </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit your offer</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+             <%= render 'form', artpiece: rental.artpiece, rental: rental %>
+            </div>
+          </div>
+        </div>
+      </div>
       <% end %>
       <div class="button-cancel">
         <% if rental.status != "cancelled" %>

@@ -11,7 +11,7 @@
       <p><%= request.start_time.to_formatted_s(:long) %> - <%= request.end_time.to_formatted_s(:long) %></p>
     </div>
     <div class="rental-price">
-      <p><strong>Expected Payment : <%= request.artpiece.price_per_day %>€</strong></p>
+      <p><strong>Expected Payment : <%= (request.end_time - request.start_time).to_i*request.artpiece.price_per_day %>€</strong></p>
     </div>
     <div class="rental-status <%= bg_status(request.status) %>">
     <%= request.status %>
