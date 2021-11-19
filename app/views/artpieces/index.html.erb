@@ -19,7 +19,7 @@
   <div class="cards">
    <% if @filtered %>
       <p><%= @artpieces.present? ? "We found #{@artpieces.size} results" : "No results found" %></p>
-      <%= link_to "supprimez le filtre X", artpieces_path %>
+      <%= link_to "X remove filter", artpieces_path %>
     <% end %>
     <% @artpieces.each do |artpiece| %>
       <%= link_to artpiece_path(artpiece), class: 'card-link' do %>
