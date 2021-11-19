@@ -4,7 +4,7 @@ by unique artists from all around the globe</p>
 </div>
 <div>
   <% if policy(Artpiece).create? %>
-    <div class="cta-sticky"> <%= link_to "add your artpiece", new_artpiece_path, class: "add" %> </div>
+    <div class="cta-sticky"> <%= link_to "+ add your artpiece", new_artpiece_path, class: "add" %> </div>
   <% end %>
   <div class="cards">
     <% @artpieces.each do |artpiece| %>
