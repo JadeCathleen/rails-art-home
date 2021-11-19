@@ -1,5 +1,5 @@
 .cards {
-  justify-content: center;
+  // justify-content: center;
   display: flex;
   flex-wrap: wrap;
   margin: 20px 5vw;
@@ -37,7 +37,7 @@
       height: 100%;
       width: 100%;
       transition: 0.5s all ease;
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.8);
       opacity: 0;
       text-align: center;
       &:hover {
