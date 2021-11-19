@@ -18,8 +18,8 @@
     </div>
     <div class="buttons">
       <% if request.status == "pending" %>
-        <%= link_to 'Accept',change_status_rental_path(request, status: "accepted"),  method: :patch, class: 'btn-accept' %>
-        <%= link_to 'Deny',change_status_rental_path(request, status: "rejected"),  method: :patch, class: 'btn-deny' %>
+        <%= link_to 'Accept',change_status_rental_path(request, status: "accepted"),  method: :patch, class: 'btn-update' %>
+        <%= link_to 'Deny',change_status_rental_path(request, status: "rejected"),  method: :patch, class: 'btn-cancel' %>
       <% end %>
     </div>
   </div>
