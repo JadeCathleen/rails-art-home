@@ -17,6 +17,11 @@ Then install the required gem versions with below command line:
 bundle install
 ```
 
+Then create the database seed with below command line:
+```bash
+rails db:seed
+```
+
 Then you can launch rails server with below command line:
 ```bash
 rails server

@@ -10,6 +10,7 @@ require "open-uri"
 
 puts "Cleaning database..."
 
+Rental.destroy_all
 Artpiece.destroy_all
 User.destroy_all
 
